@@ -1,66 +1,185 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* Modern CSS Reset and Base Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    box-sizing: border-box;
 }
 
-header nav {
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --card-background: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header and Navigation */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav {
     display: flex;
     justify-content: center;
-    background-color: #333;
-    padding: 1rem;
+    padding: 1.2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 nav a {
-    color: white;
-    margin: 0 1rem;
+    color: var(--text-color);
+    margin: 0 1.5rem;
     text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    position: relative;
 }
 
-nav a:hover {
-    color: #007bff;
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: var(--transition);
 }
 
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
 main {
-    padding: 2rem;
+    padding: 6rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-h1, h2, h3 {
-    color: #007bff;
-}
-
-.project {
-    border: 1px solid #ddd;
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: white;
+h1 {
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Project Cards */
+.project {
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--card-background);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project-btn, .cta-btn {
-    background-color: #007bff;
+    display: inline-block;
+    background-color: var(--primary-color);
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.5rem;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
 }
 
 .project-btn:hover, .cta-btn:hover {
-    background-color: #0056b3;
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
+/* Contact Section */
+#contact {
+    text-align: center;
+}
+
+#contact a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+#contact a:hover {
+    color: var(--secondary-color);
+}
+
+/* Footer */
 footer {
     text-align: center;
-    padding: 1rem;
-    background-color: #333;
+    padding: 2rem;
+    background-color: var(--text-color);
     color: white;
+    margin-top: 4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    nav a {
+        margin: 0.5rem 0;
+    }
+    
+    main {
+        padding: 8rem 1rem 1rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
 }
